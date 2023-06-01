@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model='clr-namespace:Converter.Model'
+             xmlns:viewmodel='clr-namespace:Converter.ViewModel'
+             x:DataType="{x:Type viewmodel:ViewModel}"
+             x:Class="Converter.MainPage"
+             Title="Конвертер Валют">
+    <StackLayout>
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/> 
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label      Text="Выберите дату"
+                        Grid.Row="0" />
+            <DatePicker Date="{Binding SelectedDate}"
+                        Grid.Row="1" />
+            <Picker     ItemsSource="{Binding ListValute}"
+                        SelectedItem="{Binding FirstValute}"
+                        Grid.Row="2" />
+            <Entry      Text="{Binding ValueInput}"
+                        x:DataType="viewmodel:ViewModel"
+                        Placeholder="Введите значение"
+                        Grid.Row="3" />
+            <Picker     ItemsSource="{Binding ListValute}"
+                        SelectedItem="{Binding SecondValute}"
+                        Grid.Row="4" />
+            <Label      Text="{Binding Conversion}"
+                        HorizontalTextAlignment="Center"
+                        Grid.Row="5" />
+        </Grid>
+    </StackLayout>
+</ContentPage>
